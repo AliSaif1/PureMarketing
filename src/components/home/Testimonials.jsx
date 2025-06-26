@@ -12,7 +12,7 @@ export default function Testimonials() {
       try {
         setIsLoading(true);
         // Example API call - replace with your actual implementation
-        // const response = await fetch('YOUR_GOOGLE_REVIEWS_API_ENDPOINT');
+        // const response = await fetch('https://maps.app.goo.gl/KAtDg95x9NK2MXVU7?g_st=ac');
         // const data = await response.json();
 
         // Mock data - remove this when using real API
@@ -180,7 +180,7 @@ export default function Testimonials() {
 
           <div className="mt-12 text-center">
             <a
-              href="https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID"
+              href="https://search.google.com/local/writereview?placeid=ChIJx51n2UkpYIgRokuaQSFI75w"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-lg bg-primary-500 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-primary-700 transition-colors"

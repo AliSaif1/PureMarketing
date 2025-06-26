@@ -3,22 +3,23 @@ import { ArrowRightIcon, MapPinIcon, CheckBadgeIcon } from "@heroicons/react/24/
 
 export default function HeroSection() {
   return (
-    <section className="relative isolate overflow-hidden px-6 py-28 sm:py-32 lg:px-8 rounded-lg">
-      {/* Clean, professional background */}
-      <div className="absolute">
-        {/* Subtle geometric pattern */}
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: 'radial-gradient(#64748b 1px, transparent 1px)',
-            backgroundSize: '16px 16px'
-          }}
-        />
+    <section className="relative isolate overflow-hidden px-6 py-28 sm:py-32 lg:px-8 mt-2">
+      {/* Professional video background with graceful fallback */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden -z-10">
+        <div className="absolute top-0 left-0 w-full h-full">
+          <iframe
+            src="https://www.youtube.com/embed/oxDZFqhhemw?autoplay=1&mute=1&loop=1&playlist=oxDZFqhhemw&controls=0&modestbranding=1&rel=0"
+            title="Background Video"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="absolute top-0 left-0 w-[200%] h-[200%] -translate-x-1/4 -translate-y-1/4 scale-150"
+          />
+        </div>
       </div>
 
-      {/* Structured accent elements */}
-      <div className="absolute right-0 top-0 h-full w-1/3 bg-gray-50/50" />
-      <div className="absolute left-0 bottom-0 h-1/2 w-full bg-gray-50/30" />
+      {/* Subtle overlay for better text contrast */}
+      <div className="absolute" />
 
       <div className="mx-auto max-w-2xl lg:max-w-4xl relative">
         <div className="text-center">
@@ -27,7 +28,7 @@ export default function HeroSection() {
             <div className="flex items-center gap-1.5">
               <MapPinIcon className="h-5 w-5 text-primary-600" />
               <span className="text-sm font-medium text-gray-700">
-                Serving North America & Europe with remote teams worldwide
+                Serving North America from Hamilton
               </span>
               <CheckBadgeIcon className="h-4 w-4 text-primary-600 ml-1" />
             </div>
@@ -35,17 +36,11 @@ export default function HeroSection() {
 
           {/* Strong, clean typography */}
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
-            <span className="block leading-tight">Data-Driven Digital Solutions</span>
+            <span className="block text-white">Data-Driven Digital Solutions</span>
             <span className="block mt-3 text-primary-500">
               For Scaling Businesses
             </span>
           </h1>
-
-          {/* Professional subtext */}
-          <p className="mt-8 text-lg leading-8 text-gray-600 max-w-3xl mx-auto">
-            We architect robust digital platforms that drive measurable business outcomes.
-            Combining technical excellence with strategic insight to deliver reliable, high-performance solutions.
-          </p>
 
           {/* Sophisticated CTA buttons */}
           <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -61,7 +56,7 @@ export default function HeroSection() {
               to="/services"
               className="w-48 text-center flex items-center justify-center gap-2 text-sm font-semibold leading-6 text-gray-600 hover:text-gray-900 transition-colors duration-200 group px-4 py-4 rounded-md border border-gray-300 hover:border-gray-400 bg-white"
             >
-              <span>Check Portfolio</span>
+              <span>Call Now</span>
               <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </div>
