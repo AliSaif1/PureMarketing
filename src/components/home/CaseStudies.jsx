@@ -4,7 +4,7 @@ import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 export default function CaseStudies() {
   return (
-    <section className="py-24 sm:py-32 bg-secondary-50">
+    <section className="py-24 sm:py-10 bg-secondary-100">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:max-w-none">
           <div className="text-center">

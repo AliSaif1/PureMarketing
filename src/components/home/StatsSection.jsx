@@ -7,7 +7,7 @@ export default function StatsSection() {
   ];
 
   return (
-    <section className="bg-primary-600 py-24 sm:py-32">
+    <section className="bg-secondary-50 py-24 sm:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:max-w-none">
           <div className="text-center">

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function CTASection() {
   return (
-    <section className="py-24 sm:py-32">
+    <section className="py-24 sm:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:max-w-none">
           <div className="rounded-3xl bg-gradient-to-r from-primary-500 to-accent-400 p-12 text-center">

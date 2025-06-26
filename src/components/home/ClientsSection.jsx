@@ -2,7 +2,7 @@ import clients from "../../data/clients";
 
 export default function ClientsSection() {
   return (
-    <section className="py-24 sm:py-32 bg-secondary-50">
+    <section className="py-24 sm:py-24 bg-secondary-50">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:max-w-none">
           <div className="text-center">
