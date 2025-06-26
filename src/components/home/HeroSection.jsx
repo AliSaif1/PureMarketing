@@ -6,14 +6,14 @@ export default function HeroSection() {
     <section className="relative isolate overflow-hidden px-6 py-28 sm:py-32 lg:px-8 mt-2">
       {/* Professional video background with graceful fallback */}
       <div className="absolute inset-0 w-full h-full overflow-hidden -z-10">
-        <div className="absolute top-0 left-0 w-full h-full">
+        <div className="absolute top-1/2 left-1/2 w-[177.78vh] h-[100vh] -translate-x-1/2 -translate-y-1/2 sm:w-[100vw] sm:h-[56.25vw] sm:top-0 sm:left-0 sm:translate-x-0 sm:translate-y-0">
           <iframe
             src="https://www.youtube.com/embed/oxDZFqhhemw?autoplay=1&mute=1&loop=1&playlist=oxDZFqhhemw&controls=0&modestbranding=1&rel=0"
             title="Background Video"
             frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="autoplay; fullscreen"
             allowFullScreen
-            className="absolute top-0 left-0 w-[200%] h-[200%] -translate-x-1/4 -translate-y-1/4 scale-150"
+            className="w-full h-full"
           />
         </div>
       </div>
