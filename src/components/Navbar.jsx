@@ -6,21 +6,22 @@ export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const linkClass = (path) =>
-        `px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 ease-in-out ${
-            pathname === path
-                ? "bg-primary-500 text-white shadow-md"
-                : "text-secondary-600 hover:bg-primary-100 hover:text-primary-600 transform hover:-translate-y-0.5"
+        `px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 ease-in-out ${pathname === path
+            ? "bg-primary-500 text-white shadow-md"
+            : "text-secondary-600 hover:bg-primary-100 hover:text-primary-600 transform hover:-translate-y-0.5"
         }`;
 
     const mobileLinkClass = (path) =>
-        `block px-4 py-3 text-base font-medium rounded-md ${
-            pathname === path
-                ? "bg-primary-500 text-white"
-                : "text-secondary-600 hover:bg-primary-100 hover:text-primary-600"
+        `block px-4 py-3 text-base font-medium rounded-md ${pathname === path
+            ? "bg-primary-500 text-white"
+            : "text-secondary-600 hover:bg-primary-100 hover:text-primary-600"
         }`;
 
     return (
-        <nav className="bg-white sticky top-0 z-50 rounded-full shadow-xl border-b border-gray-200">
+        <nav
+            className={`bg-white sticky top-0 z-50 shadow-xl border-b border-gray-200 transition-all duration-300 ${isMobileMenuOpen ? "rounded-t-full" : "rounded-full"
+                }`}
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     {/* Brand/Logo with hover effect */}
@@ -85,10 +86,10 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* Mobile menu */}
+            {/* Mobile overlay menu */}
             {isMobileMenuOpen && (
-                <div className="md:hidden bg-white border-t border-gray-200">
-                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <div className="absolute top-full left-0 w-full bg-white z-40 border-t border-gray-200 shadow-md md:hidden rounded-b-3xl">
+                    <div className="px-4 py-4 space-y-1">
                         <Link
                             to="/"
                             className={mobileLinkClass("/")}
@@ -132,6 +133,7 @@ export default function Navbar() {
                     </div>
                 </div>
             )}
+
         </nav>
     );
 }

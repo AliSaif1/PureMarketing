@@ -5,17 +5,21 @@ export default function HeroSection() {
   return (
     <section className="relative isolate overflow-hidden px-6 py-28 sm:py-32 lg:px-8 mt-2">
       {/* Professional video background with graceful fallback */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden -z-10">
+      <div className="absolute inset-0 w-full h-full overflow-hidden -z-50">
         <div className="absolute top-1/2 left-1/2 w-[177.78vh] h-[100vh] -translate-x-1/2 -translate-y-1/2 sm:w-[100vw] sm:h-[56.25vw] sm:top-0 sm:left-0 sm:translate-x-0 sm:translate-y-0">
+          {/* This wrapper div blocks all interactions */}
+          <div className="absolute inset-0 pointer-events-none z-10"></div>
+
           <iframe
-            src="https://www.youtube.com/embed/oxDZFqhhemw?autoplay=1&mute=1&loop=1&playlist=oxDZFqhhemw&controls=0&modestbranding=1&rel=0"
+            src="https://www.youtube.com/embed/oxDZFqhhemw?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&showinfo=0&playlist=oxDZFqhhemw&disablekb=1&fs=0&iv_load_policy=3"
             title="Background Video"
             frameBorder="0"
-            allow="autoplay; fullscreen"
-            allowFullScreen
-            className="w-full h-full"
+            allow="autoplay"
+            className="w-full h-full pointer-events-none" // Added here too for double protection
           />
         </div>
+        {/* Subtle overlay */}
+        <div className="absolute inset-0 bg-black/10 pointer-events-none" />
       </div>
 
       {/* Subtle overlay for better text contrast */}
