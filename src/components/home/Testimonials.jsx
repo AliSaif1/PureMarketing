@@ -1,35 +1,19 @@
 import { useRef, useState, useEffect } from 'react';
+import data from '../../data/testimonials';
 
 export default function Testimonials() {
   const scrollContainerRef = useRef(null);
   const [testimonials, setTestimonials] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [expandedCardId, setExpandedCardId] = useState(null);
 
-  // Replace this with your actual Google Reviews API call
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
         setIsLoading(true);
-        // Example API call - replace with your actual implementation
-        // const response = await fetch('https://maps.app.goo.gl/KAtDg95x9NK2MXVU7?g_st=ac');
-        // const data = await response.json();
-
-        // Mock data - remove this when using real API
-        const mockData = [
-          {
-            id: 1,
-            author_name: "John Doe",
-            rating: 5,
-            text: "Excellent service! The team was professional and delivered beyond our expectations.",
-            time: Date.now() / 1000 - 86400 * 30, // 30 days ago
-            author_url: "",
-            profile_photo_url: ""
-          },
-          // Add more mock reviews as needed
-        ];
-
-        setTestimonials(formatReviews(mockData));
+        setTestimonials(formatReviews(data));
       } catch (err) {
         setError("Failed to load reviews. Please try again later.");
         console.error("Error fetching reviews:", err);
@@ -46,33 +30,45 @@ export default function Testimonials() {
       id: review.time,
       name: review.author_name,
       rating: review.rating,
-      quote: review.text,
+      quote: review.text.length > 200 ? `${review.text.substring(0, 200)}...` : review.text,
+      fullQuote: review.text,
       date: new Date(review.time * 1000).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
       source: "Google",
       avatar: review.profile_photo_url || null
     }));
   };
 
-  const scrollLeft = () => {
+  const scrollToSlide = (slideIndex) => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({
-        left: -400,
+      const container = scrollContainerRef.current;
+      const slideWidth = container.offsetWidth / 3; // Width of one testimonial card
+      const scrollPosition = slideIndex * slideWidth * 3; // Scroll by 3 cards at a time
+
+      container.scrollTo({
+        left: scrollPosition,
         behavior: 'smooth'
       });
+
+      setCurrentSlide(slideIndex);
     }
   };
 
-  const scrollRight = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({
-        left: 400,
-        behavior: 'smooth'
-      });
-    }
+  const scrollPrev = () => {
+    const newSlide = currentSlide > 0 ? currentSlide - 1 : Math.ceil(testimonials.length / 3) - 1;
+    scrollToSlide(newSlide);
+  };
+
+  const scrollNext = () => {
+    const newSlide = currentSlide < Math.ceil(testimonials.length / 3) - 1 ? currentSlide + 1 : 0;
+    scrollToSlide(newSlide);
+  };
+
+  const toggleExpand = (id) => {
+    setExpandedCardId(prevId => prevId === id ? null : id);
   };
 
   return (
-    <section className="py-16 sm:py-20 relative">
+    <section className="py-16 sm:py-20 relative bg-secondary-100">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:max-w-none">
           <div className="text-center mb-12">
@@ -84,10 +80,10 @@ export default function Testimonials() {
             </p>
           </div>
 
-          {/* Navigation Arrows - Always Visible */}
+          {/* Navigation Arrows */}
           <div className="flex justify-between items-center absolute top-1/2 left-0 right-0 transform -translate-y-1/2 z-10 px-2">
             <button
-              onClick={scrollLeft}
+              onClick={scrollPrev}
               className="bg-white p-3 rounded-full shadow-lg hover:bg-slate-100 transition-colors"
               aria-label="Scroll testimonials left"
             >
@@ -96,7 +92,7 @@ export default function Testimonials() {
               </svg>
             </button>
             <button
-              onClick={scrollRight}
+              onClick={scrollNext}
               className="bg-white p-3 rounded-full shadow-lg hover:bg-slate-100 transition-colors"
               aria-label="Scroll testimonials right"
             >
@@ -107,7 +103,7 @@ export default function Testimonials() {
           </div>
 
           {/* Testimonials Container */}
-          <div className="relative">
+          <div className="relative overflow-hidden">
             {isLoading ? (
               <div className="flex justify-center items-center h-64">
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-teal-500"></div>
@@ -119,15 +115,14 @@ export default function Testimonials() {
             ) : (
               <div
                 ref={scrollContainerRef}
-                className="mt-8 flex overflow-x-hidden space-x-6 pb-8 -mx-6 px-6"
+                className="mt-8 flex overflow-x-hidden pb-8 scroll-smooth"
               >
-                {testimonials.map((testimonial) => (
+                {testimonials.map((testimonial, index) => (
                   <div
                     key={testimonial.id}
-                    className="flex-shrink-0 w-full sm:w-2/3 md:w-1/2 lg:w-1/3 px-4"
-                    style={{ minWidth: '320px' }}
+                    className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4"
                   >
-                    <div className="flex flex-col rounded-2xl bg-white p-8 shadow-sm hover:shadow-md transition-shadow h-full border border-slate-200">
+                    <div className="flex flex-col rounded-2xl bg-white p-8 shadow-sm hover:shadow-md transition-shadow h-full border border-slate-200" style={{ minHeight: '250px' }}>
                       <div className="flex items-center gap-x-4">
                         <img
                           className="h-12 w-12 rounded-full object-cover"
@@ -162,8 +157,21 @@ export default function Testimonials() {
                           </div>
                         </div>
                       </div>
-                      <p className="mt-6 text-base leading-7 text-slate-600">
-                        "{testimonial.quote}"
+                      <p className="mt-6 text-base leading-7 text-slate-600 flex-grow">
+                        {expandedCardId === testimonial.id
+                          ? testimonial.fullQuote
+                          : `${testimonial.fullQuote.substring(0, 100)}...`}
+                        {testimonial.fullQuote.length > 100 && (
+                          <button
+                            className="text-primary-500 hover:underline ml-1"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              toggleExpand(testimonial.id);
+                            }}
+                          >
+                            {expandedCardId === testimonial.id ? 'Read less' : 'Read more'}
+                          </button>
+                        )}
                       </p>
                       <div className="mt-6 flex items-center">
                         <svg className="w-5 h-5 text-slate-400" viewBox="0 0 24 24" fill="currentColor">
