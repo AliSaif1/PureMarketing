@@ -27,7 +27,7 @@ export default function Testimonials() {
 
   const formatReviews = (reviews) => {
     return reviews.map(review => ({
-      id: review.time,
+      id: review.id,
       name: review.author_name,
       rating: review.rating,
       quote: review.text.length > 200 ? `${review.text.substring(0, 200)}...` : review.text,
@@ -41,8 +41,18 @@ export default function Testimonials() {
   const scrollToSlide = (slideIndex) => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
-      const slideWidth = container.offsetWidth / 3; // Width of one testimonial card
-      const scrollPosition = slideIndex * slideWidth * 3; // Scroll by 3 cards at a time
+      const containerWidth = container.offsetWidth;
+
+      // Determine how many cards are visible per screen width
+      let visibleCards = 1;
+      if (window.innerWidth >= 1024) {
+        visibleCards = 3; // lg and up
+      } else if (window.innerWidth >= 640) {
+        visibleCards = 2; // sm to md
+      }
+
+      const cardWidth = containerWidth / visibleCards;
+      const scrollPosition = slideIndex * cardWidth;
 
       container.scrollTo({
         left: scrollPosition,
@@ -53,13 +63,23 @@ export default function Testimonials() {
     }
   };
 
+  const getVisibleCards = () => {
+    if (window.innerWidth >= 1024) return 3;
+    if (window.innerWidth >= 640) return 2;
+    return 1;
+  };
+
   const scrollPrev = () => {
-    const newSlide = currentSlide > 0 ? currentSlide - 1 : Math.ceil(testimonials.length / 3) - 1;
+    const visibleCards = getVisibleCards();
+    const maxSlide = Math.ceil(testimonials.length / visibleCards) - 1;
+    const newSlide = currentSlide > 0 ? currentSlide - 1 : maxSlide;
     scrollToSlide(newSlide);
   };
 
   const scrollNext = () => {
-    const newSlide = currentSlide < Math.ceil(testimonials.length / 3) - 1 ? currentSlide + 1 : 0;
+    const visibleCards = getVisibleCards();
+    const maxSlide = Math.ceil(testimonials.length / visibleCards) - 1;
+    const newSlide = currentSlide < maxSlide ? currentSlide + 1 : 0;
     scrollToSlide(newSlide);
   };
 

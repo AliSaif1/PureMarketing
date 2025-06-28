@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import HeroSection from "../components/home/HeroSection";
 import ServicesGrid from "../components/home/ServicesGrid";
 import Testimonials from "../components/home/Testimonials";
@@ -7,15 +8,21 @@ import ClientsSection from "../components/home/ClientsSection";
 import CTASection from "../components/home/CTASection";
 
 export default function Home() {
+  const ctaRef = useRef(null);
+
+  const scrollToCTA = () => {
+    ctaRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <main >
-      <HeroSection />
+    <main>
+      <HeroSection onConsultClick={scrollToCTA} />
       <ServicesGrid />
       <Testimonials />
       <CaseStudies />
       <ProcessSection />
       <ClientsSection />
-      <CTASection />
+      <CTASection ref={ctaRef} />
     </main>
   );
 }

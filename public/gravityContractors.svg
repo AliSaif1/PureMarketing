@@ -1,0 +1,95 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Enhanced Gradients -->
+    <linearGradient id="steelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d3748" />
+      <stop offset="50%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#dc2626" />
+    </linearGradient>
+
+    
+    <!-- Subtle noise texture -->
+    <filter id="noiseFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feBlend in="SourceGraphic" mode="overlay"/>
+    </filter>
+    
+    <!-- Background pattern -->
+    <pattern id="gridPattern" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M20 0 L0 0 0 20" fill="none" stroke="#e2e8f0" stroke-width="0.3"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="400" fill="#f8fafc"/>
+  <rect width="600" height="400" fill="url(#gridPattern)" opacity="0.2"/>
+  
+  <!-- Main content container with subtle shadow -->
+  <rect x="50" y="50" width="500" height="300" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1" filter="url(#noiseFilter)" opacity="0.98"/>
+  
+  <!-- Balanced Icons illustration -->
+  <g transform="translate(80, 170)">
+    <use href="#crane" x="0" y="0" transform="scale(1.8)"/>
+    <use href="#building" x="120" y="10" transform="scale(1.8)"/>
+    <use href="#hardhat" x="240" y="0" transform="scale(1.8)"/>
+    <use href="#blueprint" x="360" y="5" transform="scale(1.8)"/>
+  </g>
+  
+  <!-- Connecting paths with better flow -->
+  <path d="M200,240 Q300,220 400,240" stroke="url(#accentGradient)" stroke-width="2.5" fill="none" stroke-dasharray="6,3" stroke-linecap="round">
+    <animate attributeName="stroke-dashoffset" values="0;20" dur="3s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- Animated Circle -->
+  <circle cx="300" cy="200" r="0" fill="url(#accentGradient)" fill-opacity="0.2" stroke="url(#accentGradient)" stroke-width="2">
+    <animate attributeName="r" values="0;200;0" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.2;0" dur="6s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Main title with better typography -->
+  <text x="300" y="110" font-family="'Inter', sans-serif" font-size="52" font-weight="800" 
+        fill="url(#steelGradient)" text-anchor="middle" letter-spacing="-0.5">
+    GRAVITY
+  </text>
+  
+  <!-- Subtitle with improved spacing -->
+  <text x="300" y="150" font-family="'Inter', sans-serif" font-size="30" font-weight="700" 
+        fill="url(#accentGradient)" text-anchor="middle" letter-spacing="1">
+    CONTRACTORS
+  </text>
+  
+  <!-- Modern Divider -->
+  <line x1="180" y1="170" x2="300" y2="170" stroke="#e2e8f0" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="300" cy="170" r="6" fill="url(#accentGradient)"/>
+  <line x1="300" y1="170" x2="420" y2="170" stroke="#e2e8f0" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Service labels with better alignment -->
+  <g font-family="'Inter', sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#334155">
+    <text x="180" y="230">HEAVY LIFTING</text>
+    <text x="300" y="230">CONSTRUCTION</text>
+    <text x="420" y="230">SAFETY GEAR</text>
+  </g>
+  
+  <!-- Premium Call to action -->
+  <rect x="225" y="280" width="150" height="45" rx="22.5" fill="url(#accentGradient)"/>
+  <text x="300" y="308" font-family="'Inter', sans-serif" font-size="15" font-weight="700" 
+        fill="white" text-anchor="middle" letter-spacing="0.5">
+    GET A QUOTE
+  </text>
+  
+  <!-- Decorative corner elements -->
+  <rect x="55" y="55" width="10" height="2" fill="url(#accentGradient)"/>
+  <rect x="55" y="55" width="2" height="10" fill="url(#accentGradient)"/>
+  <rect x="535" y="55" width="10" height="2" fill="url(#accentGradient)"/>
+  <rect x="543" y="55" width="2" height="10" fill="url(#accentGradient)"/>
+  <rect x="55" y="343" width="10" height="2" fill="url(#accentGradient)"/>
+  <rect x="55" y="335" width="2" height="10" fill="url(#accentGradient)"/>
+  <rect x="535" y="343" width="10" height="2" fill="url(#accentGradient)"/>
+  <rect x="543" y="335" width="2" height="10" fill="url(#accentGradient)"/>
+</svg>

@@ -1,34 +1,70 @@
-import { Link } from "react-router-dom";
+import { forwardRef, useEffect } from "react";
 
-export default function CTASection() {
+const CalendlySection = forwardRef((props, ref) => {
+  useEffect(() => {
+    if (!window.Calendly) {
+      const script = document.createElement('script');
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
+
+    const initWidget = () => {
+      if (window.Calendly) {
+        const container = document.getElementById('calendly-container');
+        if (container) {
+          container.innerHTML = '';
+
+          const widgetDiv = document.createElement('div');
+          widgetDiv.className = 'calendly-inline-widget';
+          widgetDiv.setAttribute('data-url', 'https://calendly.com/alisaif2617/30min');
+          widgetDiv.style.minWidth = '320px';
+          widgetDiv.style.width = '100%';
+          widgetDiv.style.height = '100%';
+          widgetDiv.style.border = 'none';
+          widgetDiv.style.overflow = 'hidden';
+
+          container.appendChild(widgetDiv);
+
+          window.Calendly.initInlineWidget({
+            url: 'https://calendly.com/alisaif2617/30min',
+            parentElement: widgetDiv,
+            prefill: {},
+            utm: {}
+          });
+        }
+      }
+    };
+
+    const checkInterval = setInterval(() => {
+      if (window.Calendly) {
+        clearInterval(checkInterval);
+        initWidget();
+      }
+    }, 100);
+
+    return () => clearInterval(checkInterval);
+  }, []);
+
   return (
-    <section className="py-24 sm:py-24">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:max-w-none">
-          <div className="rounded-3xl bg-gradient-to-r from-primary-500 to-accent-400 p-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Ready to transform your digital presence?
-            </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-primary-100">
-              Let's discuss how we can help you achieve your business goals.
-            </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Link
-                to="/contact"
-                className="rounded-full bg-white px-8 py-3 text-sm font-semibold text-primary-600 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-all hover:scale-105"
-              >
-                Get Started
-              </Link>
-              <Link
-                to="/about"
-                className="text-sm font-semibold leading-6 text-white hover:text-primary-100 transition-colors"
-              >
-                Learn more <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-          </div>
+    <section ref={ref} className="py-20 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-4xl lg:max-w-none">
+          <div
+            id="calendly-container"
+            className="flex justify-center sm:h-[900px]"
+            style={{
+              height: '950px',
+              position: 'relative',
+              overflow: 'hidden',
+            }}
+          />
         </div>
       </div>
     </section>
   );
-}
+});
+
+CalendlySection.displayName = 'CalendlySection';
+
+export default CalendlySection;

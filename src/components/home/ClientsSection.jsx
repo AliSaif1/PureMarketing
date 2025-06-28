@@ -21,7 +21,7 @@ export default function ClientsSection() {
                   className="flex justify-center rounded-lg bg-white p-8 shadow-sm ring-1 ring-gray-900/5"
                 >
                   <img
-                    className="h-12 object-contain"
+                    className="h-20 object-contain rounded-lg"
                     src={client.logo}
                     alt={client.name}
                   />
