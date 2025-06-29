@@ -29,11 +29,11 @@ const services = [
         icon: '/social-media.svg',
         href: "/services/social-media",
     },
-    {
-        name: "Print Design",
-        icon: '/print-design.svg',
-        href: "/services/print-design",
-    },
+    // {
+    //     name: "Print Design",
+    //     icon: '/print-design.svg',
+    //     href: "/services/print-design",
+    // },
     {
         name: "Search Engine Optimization",
         icon: '/seo.svg',

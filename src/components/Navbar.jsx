@@ -43,13 +43,6 @@ export default function Navbar() {
                             Home
                         </Link>
                         <Link
-                            to="/about"
-                            className={linkClass("/about")}
-                            aria-current={pathname === "/about" ? "page" : undefined}
-                        >
-                            About
-                        </Link>
-                        <Link
                             to="/services"
                             className={linkClass("/services")}
                             aria-current={pathname === "/services" ? "page" : undefined}
@@ -62,6 +55,13 @@ export default function Navbar() {
                             aria-current={pathname === "/portfolio" ? "page" : undefined}
                         >
                             Portfolio
+                        </Link>
+                        <Link
+                            to="/about"
+                            className={linkClass("/about")}
+                            aria-current={pathname === "/about" ? "page" : undefined}
+                        >
+                            About
                         </Link>
                         <Link
                             to="/contact"
@@ -99,14 +99,6 @@ export default function Navbar() {
                             Home
                         </Link>
                         <Link
-                            to="/about"
-                            className={mobileLinkClass("/about")}
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            aria-current={pathname === "/about" ? "page" : undefined}
-                        >
-                            About
-                        </Link>
-                        <Link
                             to="/services"
                             className={mobileLinkClass("/services")}
                             onClick={() => setIsMobileMenuOpen(false)}
@@ -121,6 +113,14 @@ export default function Navbar() {
                             aria-current={pathname === "/portfolio" ? "page" : undefined}
                         >
                             Portfolio
+                        </Link>
+                        <Link
+                            to="/about"
+                            className={mobileLinkClass("/about")}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            aria-current={pathname === "/about" ? "page" : undefined}
+                        >
+                            About
                         </Link>
                         <Link
                             to="/contact"

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import services from "../data/servicesData";
 
-export default function ServicesGrid() {
+export default function Services() {
     return (
         <section className="py-24 sm:py-20 bg-secondary-50">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
