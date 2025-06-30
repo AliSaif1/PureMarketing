@@ -37,10 +37,10 @@ export default function About() {
                                 </svg>
                             </Link>
                             <Link
-                                to="/contact"
+                                to="/#cta"
                                 className="inline-flex items-center justify-center rounded-full bg-transparent border-2 border-white px-8 py-4 text-lg font-semibold text-white shadow-lg hover:bg-white/10 transition-all hover:shadow-xl transform hover:scale-105"
                             >
-                                Get in Touch
+                                Free Meeting
                             </Link>
                         </div>
                     </div>
@@ -74,10 +74,10 @@ export default function About() {
                                 Explore Our Services
                             </Link>
                             <Link
-                                to="/case-studies"
+                                to="/portfolio"
                                 className="rounded-full bg-white border border-gray-200 px-6 py-3 text-sm font-semibold text-secondary-700 shadow-sm hover:bg-gray-50 transition-all transform hover:scale-105"
                             >
-                                View Case Studies
+                                View Projects
                             </Link>
                         </div>
                     </div>
@@ -247,7 +247,7 @@ export default function About() {
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
                             <Link
-                                to="/contact"
+                                to="/#cta"
                                 className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-primary-600 shadow-sm hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-all transform hover:scale-105"
                             >
                                 Get a Free Consultation

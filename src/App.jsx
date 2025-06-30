@@ -7,6 +7,7 @@ import Contact from "./pages/Contact"
 import ServicesRoutes from "./routes/ServicesRoutes"
 import Footer from "./components/Footer"
 import ScrollToTop from "./components/ScrollToTop"
+import Portfolio from "./pages/Portfolio"
 
 export default function App() {
   return (
@@ -28,6 +29,8 @@ export default function App() {
 
             {/* Services modular route */}
             <Route path="/services/*" element={<ServicesRoutes />} />
+            <Route path="/portfolio" element={< Portfolio/>} />
+            
           </Routes>
         </div>
         <Footer />

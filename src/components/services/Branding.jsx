@@ -38,7 +38,7 @@ const GoogleMetaAdsPage = () => {
         },
         {
             name: "Enterprise Ads Suite",
-            price: "$3000+/month",
+            price: "Contact Now",
             bestFor: "Large businesses with complex advertising needs",
             features: [
                 "Multi-platform (Google, Meta, LinkedIn, etc.)",

@@ -37,7 +37,7 @@ const CustomWebDevelopmentPage = () => {
         },
         {
             name: "Enterprise",
-            price: "$3000+",
+            price: "Contact Now",
             bestFor: "Complex applications, web apps, or large-scale projects",
             features: [
                 "Unlimited custom pages",

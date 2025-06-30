@@ -39,7 +39,7 @@ const MobileAppDevelopmentPage = () => {
         },
         {
             name: "Enterprise App Solution",
-            price: "$25,000+",
+            price: "Contact Now",
             bestFor: "Large businesses with complex app requirements",
             features: [
                 "Cross-platform development",

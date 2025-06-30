@@ -37,7 +37,7 @@ const WordPressDevelopmentPage = () => {
         },
         {
             name: "WordPress E-Commerce",
-            price: "$2000+",
+            price: "Contact Now",
             bestFor: "Online stores and businesses needing WooCommerce solutions",
             features: [
                 "10-15 custom pages",

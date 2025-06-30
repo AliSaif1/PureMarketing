@@ -41,7 +41,7 @@ const WebMaintenancePage = () => {
         },
         {
             name: "Premium Care Plan",
-            price: "$600-$1,200/month",
+            price: "Contact Now",
             bestFor: "Mission-critical business websites",
             features: [
                 "Unlimited content updates",

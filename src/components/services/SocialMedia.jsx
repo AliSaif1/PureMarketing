@@ -40,7 +40,7 @@ const SocialMediaManagementPage = () => {
         },
         {
             name: "Enterprise Social Solution",
-            price: "$4,000+/month",
+            price: "Contact Now",
             bestFor: "Large businesses with comprehensive social needs",
             features: [
                 "All relevant social platforms",

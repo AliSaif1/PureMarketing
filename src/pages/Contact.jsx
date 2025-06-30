@@ -421,17 +421,23 @@ export default function Contact() {
                 <div className="bg-gradient-to-r from-primary-500 to-accent-400 rounded-3xl p-12 text-center shadow-xl relative overflow-hidden">
                     <div className="absolute inset-0 bg-noise opacity-10"></div>
                     <div className="relative z-10">
-                        <h2 className="text-3xl font-bold text-white mb-4">Ready to Accelerate Your Growth?</h2>
+                        <h2 className="text-3xl font-bold text-white mb-4">
+                            Have an Idea? Let’s Build It Together.
+                        </h2>
                         <p className="text-primary-100 mb-8 max-w-2xl mx-auto">
-                            Schedule your free strategy session with our experts today.
+                            Get expert insights, technical guidance, and a clear direction for your project — all in a free strategy session.
                         </p>
                         <Link
-                            to="/contact"
+                            to="/#cta"
                             className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-lg font-semibold text-primary-600 shadow-sm hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-all transform hover:scale-105"
                         >
-                            Get Started Now
+                            Schedule Free Meeting
                             <svg className="ml-2 -mr-1 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                                <path
+                                    fillRule="evenodd"
+                                    d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                                    clipRule="evenodd"
+                                />
                             </svg>
                         </Link>
                     </div>

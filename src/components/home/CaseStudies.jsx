@@ -55,7 +55,7 @@ export default function CaseStudies() {
         {caseStudies.length > 3 && (
           <div className="text-center mt-16">
             <Link
-              to="/case-studies"
+              to="/portfolio"
               className="inline-flex items-center px-8 py-3 text-lg font-medium rounded-full text-white bg-primary-500 hover:bg-primary-600 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
             >
               Explore All Projects

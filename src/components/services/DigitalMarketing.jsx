@@ -41,7 +41,7 @@ const DigitalMarketingPage = () => {
         },
         {
             name: "Enterprise Marketing",
-            price: "$8,000+/month",
+            price: "Contact Now",
             bestFor: "Large businesses needing full-funnel marketing",
             features: [
                 "Omnichannel marketing strategy",

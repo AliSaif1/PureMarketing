@@ -39,7 +39,7 @@ const ContentCreationPage = () => {
         },
         {
             name: "Enterprise Content Suite",
-            price: "$6,000+/month",
+            price: "Contact Now",
             bestFor: "Large businesses with advanced content needs",
             features: [
                 "Custom content volume (20+ pieces)",

@@ -39,7 +39,7 @@ const BrandStrategyIdentityPage = () => {
         },
         {
             name: "Enterprise Branding",
-            price: "$15,000+",
+            price: "Contact Now",
             bestFor: "Established companies needing full brand transformation",
             features: [
                 "360° Brand Assessment",

@@ -41,7 +41,7 @@ const SEOServicesPage = () => {
         },
         {
             name: "Enterprise SEO Solution",
-            price: "$5,000+/month",
+            price: "Contact Now",
             bestFor: "Large businesses with complex SEO needs",
             features: [
                 "Comprehensive technical SEO management",
