@@ -25,12 +25,12 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     {/* Brand/Logo with hover effect */}
-                    <Link
-                        to="/"
-                        className="text-2xl font-bold tracking-wide hover:text-primary-500 transition-colors duration-300"
-                    >
-                        <span className="text-primary-500">Pure</span>
-                        <span className="text-secondary-600">Marketing</span>
+                    <Link to="/" className="block group w-fit">
+                        <img
+                            src="/logo-pm.png" // Replace with your actual logo path
+                            alt="Pure Marketing Logo"
+                            className="h-[70px] w-[150px] transition-transform duration-300 group-hover:scale-105"
+                        />
                     </Link>
 
                     {/* Desktop Navigation Links */}
