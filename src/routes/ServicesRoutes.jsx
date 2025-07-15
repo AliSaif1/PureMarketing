@@ -10,12 +10,14 @@ import SEOServicesPage from "../components/services/SEOPage"
 import WebMaintenancePage from "../components/services/WebMaintenance"
 import BrandStrategyIdentityPage from "../components/services/BrandStrategy"
 import ContentCreationPage from "../components/services/ContentCreation"
+import ServiceCategory from "../pages/ServiceCategory";
 // import PrintDesign from "../components/services/PrintDesign"
 
 export default function ServicesRoutes() {
     return (
         <Routes>
             <Route path="/" element={<Services />} />
+            <Route path=":categoryId" element={<ServiceCategory />} />
             <Route path="web-development" element={<WebDevelopment />} />
             <Route path="wordpress-development" element={<WordPressDevelopmentPage />} />
             <Route path="ads" element={<Branding />} />

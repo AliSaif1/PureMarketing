@@ -326,7 +326,7 @@ export default function Contact() {
                                     <div>
                                         <h4 className="text-lg font-semibold text-secondary-800">Email Us</h4>
                                         <p className="text-secondary-600 mt-1">
-                                            <a href="mailto:info@puremarketing.com" className="hover:text-primary-600 transition-colors">info@puremarketing.com</a>
+                                            <a href="mailto:info@puremarketing.ca" className="hover:text-primary-600 transition-colors">info@puremarketing.ca</a>
                                         </p>
                                         <p className="text-sm text-secondary-500 mt-1">Response within 24 hours</p>
                                     </div>

@@ -86,7 +86,7 @@ export default function Footer() {
                                 <svg className="h-5 w-5 mr-2 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
-                                <a href="mailto:info@puremarketing.com" className="hover:text-primary-500 transition-colors duration-300">info@puremarketing.com</a>
+                                <a href="mailto:info@puremarketing.ca" className="hover:text-primary-500 transition-colors duration-300">info@puremarketing.ca</a>
                             </p>
                         </address>
                     </div>
