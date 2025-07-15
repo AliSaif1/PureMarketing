@@ -44,10 +44,10 @@ export default function Footer() {
                     <div>
                         <h3 className="text-secondary-600 font-semibold uppercase tracking-wider mb-4">Quick Links</h3>
                         <ul className="space-y-2">
-                            <li><Link to="/about" className="text-secondary-500 hover:text-primary-500 transition-colors duration-300 text-sm">About Us</Link></li>
+                            <li><Link to="/" className="text-secondary-500 hover:text-primary-500 transition-colors duration-300 text-sm">Home</Link></li>
                             <li><Link to="/services" className="text-secondary-500 hover:text-primary-500 transition-colors duration-300 text-sm">Our Services</Link></li>
-                            <li><Link to="/portfolio" className="text-secondary-500 hover:text-primary-500 transition-colors duration-300 text-sm">Case Studies</Link></li>
-                            <li><Link to="/blog" className="text-secondary-500 hover:text-primary-500 transition-colors duration-300 text-sm">Blog</Link></li>
+                            <li><Link to="/portfolio" className="text-secondary-500 hover:text-primary-500 transition-colors duration-300 text-sm">Our Portfolio</Link></li>
+                            <li><Link to="/about" className="text-secondary-500 hover:text-primary-500 transition-colors duration-300 text-sm">About Us</Link></li>
                             <li><Link to="/contact" className="text-secondary-500 hover:text-primary-500 transition-colors duration-300 text-sm">Contact</Link></li>
                         </ul>
                     </div>
@@ -56,11 +56,11 @@ export default function Footer() {
                     <div>
                         <h3 className="text-secondary-600 font-semibold uppercase tracking-wider mb-4">Services</h3>
                         <ul className="space-y-2">
-                            <li><Link to="/services/seo" className="text-secondary-500 hover:text-primary-500 transition-colors duration-300 text-sm">SEO Optimization</Link></li>
-                            <li><Link to="/services/ppc" className="text-secondary-500 hover:text-primary-500 transition-colors duration-300 text-sm">PPC Advertising</Link></li>
-                            <li><Link to="/services/social" className="text-secondary-500 hover:text-primary-500 transition-colors duration-300 text-sm">Social Media Marketing</Link></li>
-                            <li><Link to="/services/content" className="text-secondary-500 hover:text-primary-500 transition-colors duration-300 text-sm">Content Marketing</Link></li>
-                            <li><Link to="/services/email" className="text-secondary-500 hover:text-primary-500 transition-colors duration-300 text-sm">Email Marketing</Link></li>
+                            <li><Link to="/services/web-development" className="text-secondary-500 hover:text-primary-500 transition-colors duration-300 text-sm">Custom Web Development</Link></li>
+                            <li><Link to="/services/mobile-app-development" className="text-secondary-500 hover:text-primary-500 transition-colors duration-300 text-sm">Mobile App Development</Link></li>
+                            <li><Link to="/services/ads" className="text-secondary-500 hover:text-primary-500 transition-colors duration-300 text-sm">Google & Meta Advertisement</Link></li>
+                            <li><Link to="/services/social-media" className="text-secondary-500 hover:text-primary-500 transition-colors duration-300 text-sm">Social Media Management</Link></li>
+                            <li><Link to="/services/wordpress-development" className="text-secondary-500 hover:text-primary-500 transition-colors duration-300 text-sm">WordPress Development</Link></li>
                         </ul>
                     </div>
 
