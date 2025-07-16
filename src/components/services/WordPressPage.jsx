@@ -5,13 +5,13 @@ const WordPressDevelopmentPage = () => {
     const tiers = [
         {
             name: "Starter Site",
-            price: "$500-$800",
+            price: "$449",
             bestFor: "Small businesses or bloggers needing a simple WordPress site",
             features: [
-                "5 standard pages (Home, About, Blog, Services, Contact)",
+                "4-5 standard pages",
                 "Premium theme installation",
                 "1 design revision",
-                "7 business day delivery",
+                "10 business day delivery",
                 "Mobile-responsive design",
                 "Basic SEO setup",
                 "1-month technical support"
@@ -21,15 +21,15 @@ const WordPressDevelopmentPage = () => {
         },
         {
             name: "Business Site",
-            price: "$1000-$1500",
+            price: "$799",
             bestFor: "Growing businesses needing professional WordPress solutions",
             features: [
                 "7-10 custom pages",
                 "Custom theme development",
                 "3 design revisions",
-                "12 business day delivery",
+                "15 business day delivery",
                 "Advanced SEO optimization",
-                "Essential plugins (security, caching, forms)",
+                "Essential plugins (security, caching)",
                 "3-month support"
             ],
             popular: true,
@@ -37,7 +37,7 @@ const WordPressDevelopmentPage = () => {
         },
         {
             name: "WordPress E-Commerce",
-            price: "Contact Now",
+            price: "Contact Only",
             bestFor: "Online stores and businesses needing WooCommerce solutions",
             features: [
                 "10-15 custom pages",
@@ -153,9 +153,9 @@ const WordPressDevelopmentPage = () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                     </svg>
                                 </div>
-                                <h3 className="text-xl font-bold text-primary-500">Plugin Development</h3>
+                                <h3 className="text-xl font-bold text-primary-500">Maintenance and Support</h3>
                             </div>
-                            <p className="text-secondary-700 pl-14">Need custom functionality? We develop bespoke WordPress plugins to meet your specific business requirements.</p>
+                            <p className="text-secondary-700 pl-14">Need continuous support? We provide maintenance support after the delivery of site for your requirements.</p>
                         </div>
 
                         <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-primary-500">

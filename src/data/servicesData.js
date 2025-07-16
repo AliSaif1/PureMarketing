@@ -29,19 +29,18 @@ const allServices = [
         icon: '/maintenance.svg',
         href: "/services/maintenance",
     },
-    {
-        name: "Digital Marketing Strategy",
-        icon: '/marketing.svg',
-        href: "/services/digital-marketing",
-    },
+    // {
+    //     name: "Digital Marketing Strategy",
+    //     icon: '/marketing.svg',
+    //     href: "/services/digital-marketing",
+    // },
     {
         name: "Search Engine Optimization",
         icon: '/seo.svg',
         href: "/services/seo",
     },
-
     {
-        name: "Brand Strategy & Identity",
+        name: "Graphic Designing",
         icon: '/branding.svg',
         href: "/services/branding",
     },
@@ -56,9 +55,9 @@ const allServices = [
         name: "Social Media Posts",
         icon: '/posts2.svg',
         pricing: [
-            { price: "$99/month", description: "10 Posts" },
-            { price: "$149/month", description: "20 Posts" },
-            { price: "$199/month", description: "30 Posts" }
+            { price: "$99/month", description: "15 Posts" },
+            { price: "$149/month", description: "25 Posts" },
+            { price: "$199/month", description: "35 Posts" }
         ]
     },
     {
@@ -66,8 +65,8 @@ const allServices = [
         icon: '/video2.svg',
         pricing: [
             { price: "$99/month", description: "5 Videos" },
-            { price: "$149/month", description: "10 Videos" },
-            { price: "$199/month", description: "15 Videos" }
+            { price: "$190/month", description: "10 Videos" },
+            { price: "$250/month", description: "15 Videos" }
         ]
     },
     {
@@ -86,6 +85,14 @@ const allServices = [
             { price: "$99/month", description: "2 Blogs" },
             { price: "$190/month", description: "5 Blogs" },
             { price: "$249/month", description: "10 Blogs" }
+        ]
+    },
+    {
+        name: "Logo Design",
+        icon: '/logo.svg',
+        pricing: [
+            { price: "$99/month", description: "1 Version" },
+            { price: "$190/month", description: "2 Versions" },
         ]
     },
 ];

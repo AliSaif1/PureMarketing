@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
+import allServices from "../../data/servicesData";
 
 const BrandStrategyIdentityPage = () => {
     const tiers = [
@@ -58,6 +59,17 @@ const BrandStrategyIdentityPage = () => {
         }
     ];
 
+    const pricedServices = allServices.filter(service => service.hasOwnProperty('pricing'));
+    const [selectedService, setSelectedService] = useState(null);
+    const [selectedOption, setSelectedOption] = useState("");
+    const [showModal, setShowModal] = useState(false);
+
+    const handleGetStarted = (service) => {
+        setSelectedService(service);
+        setSelectedOption("");
+        setShowModal(true);
+    };
+
     return (
         <>
             <Helmet>
@@ -72,17 +84,17 @@ const BrandStrategyIdentityPage = () => {
                 {/* Hero Section */}
                 <section className="text-center mb-16">
                     <h1 className="text-4xl md:text-5xl font-bold text-primary-500 mb-4">
-                        Brand Strategy <span className="text-secondary-700">& Identity</span>
+                        Graphic <span className="text-secondary-700">Designing</span>
                     </h1>
                     <p className="text-xl text-secondary-500 max-w-2xl mx-auto">
-                        Crafting distinctive brands that resonate with your audience and drive business growth
+                        Crafting distinctive designs that resonate with your audience
                     </p>
                 </section>
 
                 {/* Pricing Cards */}
                 <section className="mb-20">
                     <h2 className="text-3xl font-bold text-center text-primary-500 mb-8">
-                        Branding <span className="text-secondary-700">Packages</span>
+                        Graphic Designing <span className="text-secondary-700">Packages</span>
                     </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -132,8 +144,70 @@ const BrandStrategyIdentityPage = () => {
                     </div>
                 </section>
 
+                {/* Priced Services Section */}
+                <div className="mb-12">
+                    <h2 className="text-3xl font-bold text-center text-primary-500 mb-8">
+                        Don't need a <span className="text-secondary-700">Package</span>
+                    </h2>
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        {pricedServices.slice(4, 5).map((service) => (
+                            <div
+                                key={service.name}
+                                className="flex flex-col rounded-xl bg-white border border-gray-200 overflow-hidden shadow-sm h-full"
+                            >
+                                <div className="flex flex-col items-center p-8 h-full">
+                                    <div className="flex flex-col items-center h-full w-full">
+                                        <div className="mb-6 flex items-center justify-center h-24 w-full">
+                                            <img
+                                                src={service.icon}
+                                                alt={service.name}
+                                                className="h-full w-full object-contain p-2"
+                                            />
+                                        </div>
+
+                                        <h3 className="text-xl font-bold text-gray-900 text-center">
+                                            {service.name}
+                                        </h3>
+
+                                        <div className="mt-4 w-full">
+                                            <div className="relative flex py-3 items-center">
+                                                <div className="flex-grow border-t border-gray-300"></div>
+                                                <span className="flex-shrink mx-4 text-gray-400 text-sm">Pricing</span>
+                                                <div className="flex-grow border-t border-gray-300"></div>
+                                            </div>
+                                        </div>
+
+                                        <div className="w-full mt-2">
+                                            <select
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 text-sm"
+                                                onChange={(e) => setSelectedOption(e.target.value)}
+                                            >
+                                                <option value="">Select an option</option>
+                                                {service.pricing && service.pricing.map((option, index) => (
+                                                    <option key={index} value={`${option.price} - ${option.description}`}>
+                                                        {option.price} - {option.description}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="px-6 pb-6 w-full">
+                                    <button
+                                        onClick={() => handleGetStarted(service)}
+                                        className="w-full px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                                    >
+                                        Get Started
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
                 {/* Branding Process */}
-                <section className="mb-20">
+                {/* <section className="mb-20">
                     <h2 className="text-3xl font-bold text-center text-primary-500 mb-12">
                         Our Branding <span className="text-secondary-700">Process</span>
                     </h2>
@@ -187,16 +261,15 @@ const BrandStrategyIdentityPage = () => {
                             <p className="text-secondary-700 pl-14">We provide all assets and guidelines needed to consistently apply your new brand across all touchpoints.</p>
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 {/* Branding Deliverables */}
-                <section className="mb-20">
+                {/* <section className="mb-20">
                     <h2 className="text-3xl font-bold text-center text-primary-500 mb-12">
                         Branding <span className="text-secondary-700">Deliverables</span>
                     </h2>
 
                     <div className="flex flex-wrap justify-center gap-8">
-                        {/* Logo Design */}
                         <div className="flex flex-col items-center group">
                             <div className="p-3 rounded-lg bg-white shadow-sm group-hover:shadow-md transition-shadow">
                                 <svg className="h-14 w-14 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -206,7 +279,6 @@ const BrandStrategyIdentityPage = () => {
                             <span className="mt-2 font-medium text-secondary-700">Logo Design</span>
                         </div>
 
-                        {/* Brand Guidelines */}
                         <div className="flex flex-col items-center group">
                             <div className="p-3 rounded-lg bg-white shadow-sm group-hover:shadow-md transition-shadow">
                                 <svg className="h-14 w-14 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -216,7 +288,6 @@ const BrandStrategyIdentityPage = () => {
                             <span className="mt-2 font-medium text-secondary-700">Brand Guidelines</span>
                         </div>
 
-                        {/* Color Palette */}
                         <div className="flex flex-col items-center group">
                             <div className="p-3 rounded-lg bg-white shadow-sm group-hover:shadow-md transition-shadow">
                                 <svg className="h-14 w-14 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -226,7 +297,6 @@ const BrandStrategyIdentityPage = () => {
                             <span className="mt-2 font-medium text-secondary-700">Color Palette</span>
                         </div>
 
-                        {/* Typography */}
                         <div className="flex flex-col items-center group">
                             <div className="p-3 rounded-lg bg-white shadow-sm group-hover:shadow-md transition-shadow">
                                 <svg className="h-14 w-14 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -236,7 +306,6 @@ const BrandStrategyIdentityPage = () => {
                             <span className="mt-2 font-medium text-secondary-700">Typography</span>
                         </div>
 
-                        {/* Brand Voice */}
                         <div className="flex flex-col items-center group">
                             <div className="p-3 rounded-lg bg-white shadow-sm group-hover:shadow-md transition-shadow">
                                 <svg className="h-14 w-14 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -246,7 +315,6 @@ const BrandStrategyIdentityPage = () => {
                             <span className="mt-2 font-medium text-secondary-700">Brand Voice</span>
                         </div>
 
-                        {/* Visual Assets */}
                         <div className="flex flex-col items-center group">
                             <div className="p-3 rounded-lg bg-white shadow-sm group-hover:shadow-md transition-shadow">
                                 <svg className="h-14 w-14 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -256,7 +324,7 @@ const BrandStrategyIdentityPage = () => {
                             <span className="mt-2 font-medium text-secondary-700">Visual Assets</span>
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 {/* CTA Section */}
                 <section className="text-center rounded-xl overflow-hidden shadow-xl mb-20">
@@ -278,6 +346,50 @@ const BrandStrategyIdentityPage = () => {
                     </div>
                 </section>
             </main>
+
+            {/* Modal */}
+            {showModal && (
+                <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50 p-4">
+                    <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
+                        <h3 className="text-lg font-medium text-gray-900 mb-4">
+                            Get Started with {selectedService?.name}
+                        </h3>
+                        {selectedOption && (
+                            <p className="mb-4 text-gray-600">
+                                Selected option: <span className="font-semibold">{selectedOption}</span>
+                            </p>
+                        )}
+                        <div className="mb-4">
+                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                                Email
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+                                placeholder="your@email.com"
+                            />
+                        </div>
+                        <div className="flex justify-end space-x-3">
+                            <button
+                                onClick={() => setShowModal(false)}
+                                className="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                onClick={() => {
+                                    // Handle form submission here
+                                    setShowModal(false);
+                                }}
+                                className="px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm font-medium rounded-md shadow-sm hover:from-orange-600 hover:to-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                            >
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Schema Markup */}
             <script type="application/ld+json">

@@ -130,7 +130,7 @@ const GoogleMetaAdsPage = () => {
                 </section>
 
                 {/* Advertising Features */}
-                <section className="mb-20">
+                {/* <section className="mb-20">
                     <h2 className="text-3xl font-bold text-center text-primary-500 mb-12">
                         Our Advertising <span className="text-secondary-700">Approach</span>
                     </h2>
@@ -184,7 +184,7 @@ const GoogleMetaAdsPage = () => {
                             <p className="text-secondary-700 pl-14">We focus on driving profitable customer acquisition, not just clicks or impressions.</p>
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 {/* Platforms Section */}
                 <section className="mb-20">

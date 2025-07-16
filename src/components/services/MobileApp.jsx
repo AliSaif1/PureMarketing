@@ -5,7 +5,7 @@ const MobileAppDevelopmentPage = () => {
     const tiers = [
         {
             name: "Starter App Solution",
-            price: "$3,000-$5,000",
+            price: "$3,000",
             bestFor: "Small businesses or startups needing a basic app",
             features: [
                 "Single platform (iOS OR Android)",
@@ -14,14 +14,15 @@ const MobileAppDevelopmentPage = () => {
                 "Standard performance optimization",
                 "Basic testing & QA",
                 "1 round of revisions",
-                "App store submission assistance"
+                "App store submission assistance",
+                "1 month support for bugs"
             ],
             popular: false,
             highlightColor: "primary-500"
         },
         {
             name: "Premium App Solution",
-            price: "$8,000-$15,000",
+            price: "$8,000",
             bestFor: "Growing businesses needing a professional app",
             features: [
                 "Cross-platform (iOS AND Android)",
@@ -31,15 +32,15 @@ const MobileAppDevelopmentPage = () => {
                 "Advanced performance optimization",
                 "Comprehensive testing & QA",
                 "3 rounds of revisions",
-                "Analytics integration",
-                "App store optimization"
+                "3 months ongoing support"
+                // "App store optimization"
             ],
             popular: true,
             highlightColor: "primary-500"
         },
         {
             name: "Enterprise App Solution",
-            price: "Contact Now",
+            price: "Contact Only",
             bestFor: "Large businesses with complex app requirements",
             features: [
                 "Cross-platform development",
@@ -47,11 +48,11 @@ const MobileAppDevelopmentPage = () => {
                 "Unlimited features",
                 "Backend development",
                 "Advanced security features",
-                "AI/ML integration",
+                // "AI/ML integration",
                 "Enterprise-grade testing",
                 "Unlimited revisions",
-                "Ongoing maintenance package",
-                "Dedicated project manager"
+                "6 months Ongoing support",
+                // "Dedicated project manager"
             ],
             popular: false,
             highlightColor: "primary-500"
@@ -133,7 +134,7 @@ const MobileAppDevelopmentPage = () => {
                 </section>
 
                 {/* Development Features */}
-                <section className="mb-20">
+                {/* <section className="mb-20">
                     <h2 className="text-3xl font-bold text-center text-primary-500 mb-12">
                         Our Development <span className="text-secondary-700">Process</span>
                     </h2>
@@ -188,7 +189,7 @@ const MobileAppDevelopmentPage = () => {
                             <p className="text-secondary-700 pl-14">Scalable architecture that grows with your business and adapts to new technologies.</p>
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 {/* Technologies Section */}
                 <section className="mb-20">

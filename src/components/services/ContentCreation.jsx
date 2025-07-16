@@ -1,19 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
+import allServices from "../../data/servicesData";
 
 const ContentCreationPage = () => {
     const tiers = [
         {
             name: "Starter Content Package",
-            price: "$800-$1,500/month",
+            price: "$199/month",
             bestFor: "Businesses needing basic content creation",
             features: [
-                "4 blog articles OR 2 long-form pieces",
-                "8 social media posts (copy + graphics)",
-                "Basic photo editing (up to 10 images)",
-                "1 simple video (up to 60 seconds)",
+                "2 blog articles (upto 1000 words)",
+                "2 Email designs (copy + graphics)",
+                "Basic update revision",
                 "Content calendar",
-                "1 platform focus (blog or 1 social channel)",
+                "1 platform focus",
                 "Monthly strategy call"
             ],
             popular: false,
@@ -21,65 +21,69 @@ const ContentCreationPage = () => {
         },
         {
             name: "Growth Content Package",
-            price: "$2,500-$4,000/month",
+            price: "$399/month",
             bestFor: "Businesses scaling their content marketing",
             features: [
-                "8 blog articles OR 4 long-form pieces",
-                "16 social media posts (copy + graphics)",
-                "Professional photo editing (up to 25 images)",
-                "2-3 professional videos (up to 2 minutes each)",
-                "Content strategy development",
+                "5 blog articles (upto 1500 words)",
+                "5 Email designs (copy + graphics)",
                 "Multi-platform distribution",
                 "Basic SEO optimization",
                 "Bi-weekly strategy calls",
                 "Performance analytics report"
             ],
-            popular: true,
+            popular: false,
             highlightColor: "primary-500"
         },
         {
             name: "Enterprise Content Suite",
-            price: "Contact Now",
-            bestFor: "Large businesses with advanced content needs",
+            price: "$549/month",
+            bestFor: "Businesses with advanced content needs",
             features: [
-                "Custom content volume (20+ pieces)",
-                "Full social media management",
-                "Professional photo shoots (on location)",
-                "High-production video content",
-                "Advanced SEO strategy",
-                "Multi-channel content distribution",
-                "Content repurposing system",
+                "10 blog articles (upto 1500 words)",
+                "10 Email designs (copy + graphics)",
+                "Multi-platform distribution",
                 "Weekly strategy calls",
                 "Detailed analytics & optimization",
                 "Dedicated content team"
             ],
-            popular: false,
+            popular: true,
             highlightColor: "primary-500"
         }
     ];
 
-    const contentTypes = [
-        {
-            name: "Copywriting",
-            description: "Compelling written content that engages your audience and drives action",
-            examples: ["Blog posts", "Website copy", "Social media captions", "Email campaigns", "Whitepapers"]
-        },
-        {
-            name: "Photography",
-            description: "Professional images that showcase your brand and products",
-            examples: ["Product photography", "Lifestyle shots", "Behind-the-scenes", "Event coverage", "Stock photo curation"]
-        },
-        {
-            name: "Videography",
-            description: "High-quality video content that tells your brand story",
-            examples: ["Product demos", "Testimonials", "Explainer videos", "Social media shorts", "Live streaming"]
-        },
-        {
-            name: "Graphic Design",
-            description: "Visually appealing designs that reinforce your brand identity",
-            examples: ["Social media graphics", "Infographics", "Presentations", "Digital ads", "Print materials"]
-        }
-    ];
+    // const contentTypes = [
+    //     {
+    //         name: "Copywriting",
+    //         description: "Compelling written content that engages your audience and drives action",
+    //         examples: ["Blog posts", "Website copy", "Social media captions", "Email campaigns", "Whitepapers"]
+    //     },
+    //     {
+    //         name: "Photography",
+    //         description: "Professional images that showcase your brand and products",
+    //         examples: ["Product photography", "Lifestyle shots", "Behind-the-scenes", "Event coverage", "Stock photo curation"]
+    //     },
+    //     {
+    //         name: "Videography",
+    //         description: "High-quality video content that tells your brand story",
+    //         examples: ["Product demos", "Testimonials", "Explainer videos", "Social media shorts", "Live streaming"]
+    //     },
+    //     {
+    //         name: "Graphic Design",
+    //         description: "Visually appealing designs that reinforce your brand identity",
+    //         examples: ["Social media graphics", "Infographics", "Presentations", "Digital ads", "Print materials"]
+    //     }
+    // ];
+
+    const pricedServices = allServices.filter(service => service.hasOwnProperty('pricing'));
+    const [selectedService, setSelectedService] = useState(null);
+    const [selectedOption, setSelectedOption] = useState("");
+    const [showModal, setShowModal] = useState(false);
+
+    const handleGetStarted = (service) => {
+        setSelectedService(service);
+        setSelectedOption("");
+        setShowModal(true);
+    };
 
     return (
         <>
@@ -155,7 +159,70 @@ const ContentCreationPage = () => {
                     </div>
                 </section>
 
+                {/* Priced Services Section */}
+                <div className="mb-20">
+                    <h2 className="text-3xl font-bold text-center text-primary-500 mb-8">
+                        Don't need a <span className="text-secondary-700">Package</span>
+                    </h2>
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        {pricedServices.slice(2, 4).map((service) => (
+                            <div
+                                key={service.name}
+                                className="flex flex-col rounded-xl bg-white border border-gray-200 overflow-hidden shadow-sm h-full"
+                            >
+                                <div className="flex flex-col items-center p-8 h-full">
+                                    <div className="flex flex-col items-center h-full w-full">
+                                        <div className="mb-6 flex items-center justify-center h-24 w-full">
+                                            <img
+                                                src={service.icon}
+                                                alt={service.name}
+                                                className="h-full w-full object-contain p-2"
+                                            />
+                                        </div>
+
+                                        <h3 className="text-xl font-bold text-gray-900 text-center">
+                                            {service.name}
+                                        </h3>
+
+                                        <div className="mt-4 w-full">
+                                            <div className="relative flex py-3 items-center">
+                                                <div className="flex-grow border-t border-gray-300"></div>
+                                                <span className="flex-shrink mx-4 text-gray-400 text-sm">Pricing</span>
+                                                <div className="flex-grow border-t border-gray-300"></div>
+                                            </div>
+                                        </div>
+
+                                        <div className="w-full mt-2">
+                                            <select
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 text-sm"
+                                                onChange={(e) => setSelectedOption(e.target.value)}
+                                            >
+                                                <option value="">Select an option</option>
+                                                {service.pricing && service.pricing.map((option, index) => (
+                                                    <option key={index} value={`${option.price} - ${option.description}`}>
+                                                        {option.price} - {option.description}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="px-6 pb-6 w-full">
+                                    <button
+                                        onClick={() => handleGetStarted(service)}
+                                        className="w-full px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                                    >
+                                        Get Started
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
                 {/* Content Types */}
+                {/*
                 <section className="mb-20">
                     <h2 className="text-3xl font-bold text-center text-primary-500 mb-12">
                         Content <span className="text-secondary-700">Services</span>
@@ -204,18 +271,18 @@ const ContentCreationPage = () => {
                         ))}
                     </div>
                 </section>
+                */}
 
                 {/* Content Process */}
+                {/*
                 <section className="mb-20">
                     <h2 className="text-3xl font-bold text-center text-primary-500 mb-12">
                         Our Content <span className="text-secondary-700">Process</span>
                     </h2>
 
                     <div className="relative">
-                        {/* Timeline line */}
                         <div className="hidden md:block absolute left-1/2 h-full w-0.5 bg-primary-200 transform -translate-x-1/2"></div>
 
-                        {/* Timeline items */}
                         <div className="space-y-12 md:space-y-0">
                             {[
                                 {
@@ -274,7 +341,6 @@ const ContentCreationPage = () => {
                                 }
                             ].map((step, index) => (
                                 <div key={index} className="relative md:flex md:items-center md:justify-between">
-                                    {/* For even items */}
                                     {index % 2 === 0 ? (
                                         <>
                                             <div className="md:w-5/12 mb-4 md:mb-0">
@@ -317,6 +383,7 @@ const ContentCreationPage = () => {
                         </div>
                     </div>
                 </section>
+                */}
 
                 {/* CTA Section */}
                 <section className="text-center rounded-xl overflow-hidden shadow-xl mb-20">
@@ -338,6 +405,50 @@ const ContentCreationPage = () => {
                     </div>
                 </section>
             </main>
+
+            {/* Modal */}
+            {showModal && (
+                <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50 p-4">
+                    <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
+                        <h3 className="text-lg font-medium text-gray-900 mb-4">
+                            Get Started with {selectedService?.name}
+                        </h3>
+                        {selectedOption && (
+                            <p className="mb-4 text-gray-600">
+                                Selected option: <span className="font-semibold">{selectedOption}</span>
+                            </p>
+                        )}
+                        <div className="mb-4">
+                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                                Email
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+                                placeholder="your@email.com"
+                            />
+                        </div>
+                        <div className="flex justify-end space-x-3">
+                            <button
+                                onClick={() => setShowModal(false)}
+                                className="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                onClick={() => {
+                                    // Handle form submission here
+                                    setShowModal(false);
+                                }}
+                                className="px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm font-medium rounded-md shadow-sm hover:from-orange-600 hover:to-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                            >
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Schema Markup */}
             <script type="application/ld+json">

@@ -1,64 +1,69 @@
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
+import allServices from "../../data/servicesData";
 
 const SocialMediaManagementPage = () => {
     const tiers = [
         {
             name: "Starter Social Package",
-            price: "$500-$1,200/month",
+            price: "$99/month",
             bestFor: "Small businesses starting with social media",
             features: [
-                "2 social media platforms",
-                "8 posts per month per platform",
-                "Basic content creation",
-                "Community engagement (5x/week)",
-                "Monthly performance report",
+                "10 Posts / month",
+                "2 Reels / month (15-60 seconds)",
+                "1-2 social media platforms",
+                "Basic caption writing",
                 "Hashtag research",
                 "Branded content calendar",
-                "Weekly monitoring"
+                "Monthly performance report"
             ],
             popular: false,
             highlightColor: "primary-500"
         },
         {
             name: "Growth Social Suite",
-            price: "$1,500-$3,000/month",
+            price: "$149/month",
             bestFor: "Businesses scaling their social presence",
             features: [
-                "4 social media platforms",
-                "12 posts per month per platform",
-                "Premium content creation",
-                "Daily community engagement",
+                "20 Posts / month",
+                "4 Reels / month (15-60 seconds)",
+                "Up to 3 social media platforms",
+                "Custom caption writing",
+                "Hashtag & trend research",
                 "Bi-weekly performance reports",
-                "Competitor analysis",
-                "Content strategy development",
-                "Basic paid social ads management",
-                "Influencer outreach (2/month)"
+                "Content scheduling"
             ],
-            popular: true,
+            popular: false,
             highlightColor: "primary-500"
         },
         {
             name: "Enterprise Social Solution",
-            price: "Contact Now",
-            bestFor: "Large businesses with comprehensive social needs",
+            price: "$199/month",
+            bestFor: "Businesses with comprehensive social needs",
             features: [
-                "All relevant social platforms",
-                "Unlimited posts (strategic frequency)",
-                "Premium custom content creation",
-                "24/7 community engagement",
-                "Weekly performance deep dives",
-                "Advanced competitor analysis",
-                "Full-funnel social strategy",
-                "Comprehensive paid social management",
-                "Influencer marketing program",
-                "Crisis management",
-                "Dedicated account manager"
+                "30 Posts / month",
+                "6 Reels / month (15-60 seconds)",
+                "Up to 4 social media platforms",
+                "Advanced caption writing",
+                "High-quality visuals (posts + reels)",
+                "Branded content calendar",
+                "Weekly performance reports"
             ],
-            popular: false,
+            popular: true,
             highlightColor: "primary-500"
         }
     ];
+
+    const pricedServices = allServices.filter(service => service.hasOwnProperty('pricing'));
+    const [selectedService, setSelectedService] = useState(null);
+    const [selectedOption, setSelectedOption] = useState("");
+    const [showModal, setShowModal] = useState(false);
+
+    const handleGetStarted = (service) => {
+        setSelectedService(service);
+        setSelectedOption("");
+        setShowModal(true);
+    };
 
     return (
         <>
@@ -134,8 +139,70 @@ const SocialMediaManagementPage = () => {
                     </div>
                 </section>
 
+                {/* Priced Services Section */}
+                <div className="mb-12">
+                    <h2 className="text-3xl font-bold text-center text-primary-500 mb-8">
+                        Don't need a <span className="text-secondary-700">Package</span>
+                    </h2>
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        {pricedServices.slice(0, 2).map((service) => (
+                            <div
+                                key={service.name}
+                                className="flex flex-col rounded-xl bg-white border border-gray-200 overflow-hidden shadow-sm h-full"
+                            >
+                                <div className="flex flex-col items-center p-8 h-full">
+                                    <div className="flex flex-col items-center h-full w-full">
+                                        <div className="mb-6 flex items-center justify-center h-24 w-full">
+                                            <img
+                                                src={service.icon}
+                                                alt={service.name}
+                                                className="h-full w-full object-contain p-2"
+                                            />
+                                        </div>
+
+                                        <h3 className="text-xl font-bold text-gray-900 text-center">
+                                            {service.name}
+                                        </h3>
+
+                                        <div className="mt-4 w-full">
+                                            <div className="relative flex py-3 items-center">
+                                                <div className="flex-grow border-t border-gray-300"></div>
+                                                <span className="flex-shrink mx-4 text-gray-400 text-sm">Pricing</span>
+                                                <div className="flex-grow border-t border-gray-300"></div>
+                                            </div>
+                                        </div>
+
+                                        <div className="w-full mt-2">
+                                            <select
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 text-sm"
+                                                onChange={(e) => setSelectedOption(e.target.value)}
+                                            >
+                                                <option value="">Select an option</option>
+                                                {service.pricing && service.pricing.map((option, index) => (
+                                                    <option key={index} value={`${option.price} - ${option.description}`}>
+                                                        {option.price} - {option.description}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="px-6 pb-6 w-full">
+                                    <button
+                                        onClick={() => handleGetStarted(service)}
+                                        className="w-full px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                                    >
+                                        Get Started
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
                 {/* Management Features */}
-                <section className="mb-20">
+                {/* <section className="mb-20">
                     <h2 className="text-3xl font-bold text-center text-primary-500 mb-12">
                         Our Social Media <span className="text-secondary-700">Approach</span>
                     </h2>
@@ -189,7 +256,7 @@ const SocialMediaManagementPage = () => {
                             <p className="text-secondary-700 pl-14">Compelling narratives that connect with your audience on an emotional level.</p>
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 {/* Platforms Section */}
                 <section className="mb-20">
@@ -260,6 +327,50 @@ const SocialMediaManagementPage = () => {
                     </div>
                 </section>
             </main>
+            
+            {/* Modal */}
+            {showModal && (
+                <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50 p-4">
+                    <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
+                        <h3 className="text-lg font-medium text-gray-900 mb-4">
+                            Get Started with {selectedService?.name}
+                        </h3>
+                        {selectedOption && (
+                            <p className="mb-4 text-gray-600">
+                                Selected option: <span className="font-semibold">{selectedOption}</span>
+                            </p>
+                        )}
+                        <div className="mb-4">
+                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                                Email
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+                                placeholder="your@email.com"
+                            />
+                        </div>
+                        <div className="flex justify-end space-x-3">
+                            <button
+                                onClick={() => setShowModal(false)}
+                                className="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                onClick={() => {
+                                    // Handle form submission here
+                                    setShowModal(false);
+                                }}
+                                className="px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm font-medium rounded-md shadow-sm hover:from-orange-600 hover:to-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                            >
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Schema Markup */}
             <script type="application/ld+json">

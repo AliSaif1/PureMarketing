@@ -1,21 +1,9 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import allServices from "../data/servicesData";
 
 export default function Services() {
-    const [selectedService, setSelectedService] = useState(null);
-    const [selectedOption, setSelectedOption] = useState("");
-    const [showModal, setShowModal] = useState(false);
-
     // Separate services into two categories
     const packageServices = allServices.filter(service => !service.hasOwnProperty('pricing'));
-    const pricedServices = allServices.filter(service => service.hasOwnProperty('pricing'));
-
-    const handleGetStarted = (service) => {
-        setSelectedService(service);
-        setSelectedOption("");
-        setShowModal(true);
-    };
 
     return (
         <section className="py-24 sm:py-20 bg-secondary-50">
@@ -83,114 +71,8 @@ export default function Services() {
                             ))}
                         </div>
                     </div>
-
-                    {/* Priced Services Section */}
-                    <div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-                            Content Creation Services
-                        </h3>
-                        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                            {pricedServices.map((service) => (
-                                <div
-                                    key={service.name}
-                                    className="flex flex-col rounded-xl bg-white border border-gray-200 overflow-hidden shadow-sm h-full"
-                                >
-                                    <div className="flex flex-col items-center p-8 h-full">
-                                        <div className="flex flex-col items-center h-full w-full">
-                                            <div className="mb-6 flex items-center justify-center h-24 w-full">
-                                                <img
-                                                    src={service.icon}
-                                                    alt={service.name}
-                                                    className="h-full w-full object-contain p-2"
-                                                />
-                                            </div>
-
-                                            <h3 className="text-xl font-bold text-gray-900 text-center">
-                                                {service.name}
-                                            </h3>
-
-                                            <div className="mt-4 w-full">
-                                                <div className="relative flex py-3 items-center">
-                                                    <div className="flex-grow border-t border-gray-300"></div>
-                                                    <span className="flex-shrink mx-4 text-gray-400 text-sm">Pricing</span>
-                                                    <div className="flex-grow border-t border-gray-300"></div>
-                                                </div>
-                                            </div>
-
-                                            <div className="w-full mt-2">
-                                                <select
-                                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 text-sm"
-                                                    onChange={(e) => setSelectedOption(e.target.value)}
-                                                >
-                                                    <option value="">Select an option</option>
-                                                    {service.pricing && service.pricing.map((option, index) => (
-                                                        <option key={index} value={`${option.price} - ${option.description}`}>
-                                                            {option.price} - {option.description}
-                                                        </option>
-                                                    ))}
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="px-6 pb-6 w-full">
-                                        <button
-                                            onClick={() => handleGetStarted(service)}
-                                            className="w-full px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
-                                        >
-                                            Get Started
-                                        </button>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
                 </div>
             </div>
-
-            {/* Modal */}
-            {showModal && (
-                <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50 p-4">
-                    <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
-                        <h3 className="text-lg font-medium text-gray-900 mb-4">
-                            Get Started with {selectedService?.name}
-                        </h3>
-                        {selectedOption && (
-                            <p className="mb-4 text-gray-600">
-                                Selected option: <span className="font-semibold">{selectedOption}</span>
-                            </p>
-                        )}
-                        <div className="mb-4">
-                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                                Email
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
-                                placeholder="your@email.com"
-                            />
-                        </div>
-                        <div className="flex justify-end space-x-3">
-                            <button
-                                onClick={() => setShowModal(false)}
-                                className="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
-                            >
-                                Cancel
-                            </button>
-                            <button
-                                onClick={() => {
-                                    // Handle form submission here
-                                    setShowModal(false);
-                                }}
-                                className="px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm font-medium rounded-md shadow-sm hover:from-orange-600 hover:to-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
-                            >
-                                Submit
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
         </section>
     );
 }

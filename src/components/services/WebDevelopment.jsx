@@ -5,11 +5,11 @@ const CustomWebDevelopmentPage = () => {
     const tiers = [
         {
             name: "Starter",
-            price: "$800-$1200",
+            price: "$499",
             bestFor: "Small businesses needing unique design and functionality",
             features: [
                 "5 custom-designed pages",
-                "2 design revisions",
+                "1 design revision",
                 "10 business day delivery",
                 "Mobile-responsive design",
                 "Basic SEO setup",
@@ -21,15 +21,15 @@ const CustomWebDevelopmentPage = () => {
         },
         {
             name: "Business",
-            price: "$1500-$2500",
+            price: "$799",
             bestFor: "Businesses requiring complex functionality and design",
             features: [
                 "8-10 custom pages",
-                "4 design revisions",
+                "3 design revisions",
                 "15 business day delivery",
                 "Custom JavaScript functionality",
                 "API integrations",
-                "Performance optimization (90+ PageSpeed)",
+                "Performance optimization",
                 "3-month support"
             ],
             popular: true,
@@ -37,7 +37,7 @@ const CustomWebDevelopmentPage = () => {
         },
         {
             name: "Enterprise",
-            price: "Contact Now",
+            price: "Contact Only",
             bestFor: "Complex applications, web apps, or large-scale projects",
             features: [
                 "Unlimited custom pages",
