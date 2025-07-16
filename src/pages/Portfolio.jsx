@@ -42,11 +42,13 @@ export default function CaseStudies() {
                 {/* YouTube Background Video */}
                 <div className="absolute top-1/2 left-1/2 w-[177.78vh] h-[100vh] -translate-x-1/2 -translate-y-1/2 sm:w-[100vw] sm:h-[56.25vw] sm:top-0 sm:left-0 sm:translate-x-0 sm:translate-y-0">
                     <div className="absolute inset-0 pointer-events-none z-10" />
-                    <iframe
-                        src="https://www.youtube.com/embed/oxDZFqhhemw?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&showinfo=0&playlist=oxDZFqhhemw&disablekb=1&fs=0&iv_load_policy=3"
+                    <video
+                        src="/header_video.mp4"
                         title="Background Video"
-                        frameBorder="0"
-                        allow="autoplay"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
                         className="w-full h-full pointer-events-none"
                     />
                 </div>
@@ -62,7 +64,7 @@ export default function CaseStudies() {
                                 href="#projects"
                                 className="rounded-md bg-primary-500 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-primary-400 transition-all"
                             >
-                                View My Work
+                                View Our Work
                             </a>
                             <Link
                                 to="/#cta"
@@ -163,8 +165,7 @@ export default function CaseStudies() {
                         </div>
 
                         {/* Third row with side projects on left and main on right */}
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            {/* Side projects (left) */}
+                        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div className="grid grid-rows-2 gap-6 h-[400px] order-1 md:order-1">
                                 {topProjects.slice(4, 6).map((project) => (
                                     <ProjectCard
@@ -176,7 +177,6 @@ export default function CaseStudies() {
                                 ))}
                             </div>
 
-                            {/* Main featured project (right) */}
                             <div className="md:col-span-2 lg:h-[400px] order-2 md:order-2">
                                 <ProjectCard
                                     project={topProjects[6]}
@@ -184,7 +184,7 @@ export default function CaseStudies() {
                                     titleSize="text-3xl"
                                 />
                             </div>
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* Simple Grid for Remaining Projects */}

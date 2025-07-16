@@ -11,12 +11,14 @@ export default function About() {
                     {/* This wrapper div blocks all interactions */}
                     <div className="absolute inset-0 pointer-events-none z-10"></div>
 
-                    <iframe
-                        src="https://www.youtube.com/embed/oxDZFqhhemw?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&showinfo=0&playlist=oxDZFqhhemw&disablekb=1&fs=0&iv_load_policy=3"
+                    <video
+                        src="/header_video.mp4"
                         title="Background Video"
-                        frameBorder="0"
-                        allow="autoplay"
-                        className="w-full h-full pointer-events-none" // Added here too for double protection
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full pointer-events-none"
                     />
                 </div>
 
@@ -264,5 +266,5 @@ export default function About() {
             </section>
         </div>
     );
-    
+
 }

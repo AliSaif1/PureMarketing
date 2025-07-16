@@ -209,7 +209,7 @@ const CustomWebDevelopmentPage = () => {
                         Let's discuss your unique requirements and build something exceptional.
                     </p>
                     <a
-                        href="#contact"
+                        href="/#cta"
                         className="inline-block bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-bold transition-colors shadow-lg"
                     >
                         Get a Free Consultation

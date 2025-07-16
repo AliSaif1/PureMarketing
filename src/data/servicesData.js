@@ -42,7 +42,7 @@ const allServices = [
     {
         name: "Graphic Designing",
         icon: '/branding.svg',
-        href: "/services/branding",
+        href: "/services/graphic-design",
     },
     {
         name: "Content Creation",
@@ -90,6 +90,54 @@ const allServices = [
     {
         name: "Logo Design",
         icon: '/logo.svg',
+        pricing: [
+            { price: "$99/month", description: "1 Version" },
+            { price: "$190/month", description: "2 Versions" },
+        ]
+    },
+    {
+        name: "Business Card Design",
+        icon: '/business.svg',
+        pricing: [
+            { price: "$99/month", description: "1 Version" },
+            { price: "$190/month", description: "2 Versions" },
+        ]
+    },
+    {
+        name: "Letterhead Design",
+        icon: '/letterHead.svg',
+        pricing: [
+            { price: "$99/month", description: "1 Version" },
+            { price: "$190/month", description: "2 Versions" },
+        ]
+    },
+    {
+        name: "Email Signature Design",
+        icon: '/email-sign.svg',
+        pricing: [
+            { price: "$99/month", description: "1 Version" },
+            { price: "$190/month", description: "2 Versions" },
+        ]
+    },
+    {
+        name: "Flyer/Pamphalet Design",
+        icon: '/flyer.svg',
+        pricing: [
+            { price: "$99/month", description: "1 Version" },
+            { price: "$190/month", description: "2 Versions" },
+        ]
+    },
+    {
+        name: "Brochure Design",
+        icon: '/brochure.svg',
+        pricing: [
+            { price: "$99/month", description: "1 Version" },
+            { price: "$190/month", description: "2 Versions" },
+        ]
+    },
+    {
+        name: "Poster Design",
+        icon: '/poster.svg',
         pricing: [
             { price: "$99/month", description: "1 Version" },
             { price: "$190/month", description: "2 Versions" },

@@ -5,54 +5,46 @@ import allServices from "../../data/servicesData";
 const BrandStrategyIdentityPage = () => {
     const tiers = [
         {
-            name: "Essential Branding",
-            price: "$1,500-$3,000",
-            bestFor: "Startups and small businesses needing foundational branding",
+            name: "Basic Design Package",
+            price: "$200-$500",
+            bestFor: "Startups and small businesses needing essential designs",
             features: [
-                "Brand Discovery Workshop",
-                "Core Brand Strategy",
-                "Brand Messaging Framework",
                 "Logo Design (2 concepts)",
-                "Basic Brand Guidelines",
-                "Color Palette & Typography",
-                "1 Round of Revisions"
+                "Business Card Design",
+                "Social Media Banner (1 platform)",
+                "Basic Color Palette",
+                "1 Round of Revisions",
+                "Standard Delivery (5-7 days)"
             ],
             popular: false,
             highlightColor: "primary-500"
         },
         {
-            name: "Comprehensive Branding",
-            price: "$5,000-$10,000",
-            bestFor: "Growing businesses ready to establish a strong brand presence",
+            name: "Standard Design Package",
+            price: "$500-$1,200",
+            bestFor: "Growing businesses needing complete branding materials",
             features: [
-                "In-Depth Brand Audit",
-                "Competitive Analysis",
-                "Complete Brand Strategy",
-                "Visual Identity System",
                 "Logo Design (3 concepts)",
-                "Full Brand Guidelines",
-                "Brand Voice & Tone Guide",
-                "Brand Application Examples",
-                "3 Rounds of Revisions"
+                "Full Stationery Set (Cards, letterhead)",
+                "Social Media Kit (3 platforms)",
+                "Brochure/Flyer Design (2 pages)",
+                "3 Rounds of Revisions",
+                "Priority Delivery (3-5 days)"
             ],
             popular: true,
             highlightColor: "primary-500"
         },
         {
-            name: "Enterprise Branding",
-            price: "Contact Now",
-            bestFor: "Established companies needing full brand transformation",
+            name: "Premium Design Package",
+            price: "$1,200-$2,500",
+            bestFor: "Established companies needing full design solutions",
             features: [
-                "360° Brand Assessment",
-                "Market Research & Positioning",
-                "Complete Brand Architecture",
-                "Premium Visual Identity",
-                "Custom Illustrations/Photography",
-                "Motion Design System",
-                "Comprehensive Brand Guidelines",
-                "Brand Training Sessions",
-                "Brand Rollout Strategy",
-                "Unlimited Revisions"
+                "Logo with Variations (4 concepts)",
+                "Stationery + Email Signature",
+                "Social Media Kit (5 platforms)",
+                "Marketing Collateral (Brochures, posters)",
+                "Unlimited Revisions",
+                "Express Delivery (2-3 days)"
             ],
             popular: false,
             highlightColor: "primary-500"
@@ -150,7 +142,7 @@ const BrandStrategyIdentityPage = () => {
                         Don't need a <span className="text-secondary-700">Package</span>
                     </h2>
                     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                        {pricedServices.slice(4, 5).map((service) => (
+                        {pricedServices.slice(4, ).map((service) => (
                             <div
                                 key={service.name}
                                 className="flex flex-col rounded-xl bg-white border border-gray-200 overflow-hidden shadow-sm h-full"
@@ -337,10 +329,10 @@ const BrandStrategyIdentityPage = () => {
                         </p>
                         <div className="flex justify-center space-x-4">
                             <a
-                                href="#contact"
-                                className="bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-bold transition-colors shadow-lg hover:shadow-xl"
+                                href="/#cta"
+                                className="inline-block bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-bold transition-colors shadow-lg"
                             >
-                                Get Started
+                                Get a Free Consultation
                             </a>
                         </div>
                     </div>

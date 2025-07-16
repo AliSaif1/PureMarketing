@@ -195,10 +195,10 @@ const WordPressDevelopmentPage = () => {
                         </p>
                         <div className="flex justify-center space-x-4">
                             <a
-                                href="#contact"
-                                className="bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-bold transition-colors shadow-lg hover:shadow-xl"
+                                href="/#cta"
+                                className="inline-block bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-bold transition-colors shadow-lg"
                             >
-                                Start Your Project
+                                Get a Free Consultation
                             </a>
                         </div>
                     </div>

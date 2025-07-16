@@ -318,16 +318,16 @@ const SocialMediaManagementPage = () => {
                         </p>
                         <div className="flex justify-center space-x-4">
                             <a
-                                href="#contact"
-                                className="bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-bold transition-colors shadow-lg hover:shadow-xl"
+                                href="/#cta"
+                                className="inline-block bg-white text-primary-600 hover:bg-primary-50 px-8 py-3 rounded-lg font-bold transition-colors shadow-lg"
                             >
-                                Get Started
+                                Get a Free Consultation
                             </a>
                         </div>
                     </div>
                 </section>
             </main>
-            
+
             {/* Modal */}
             {showModal && (
                 <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50 p-4">
