@@ -27,9 +27,9 @@ export default function Navbar() {
                     {/* Brand/Logo with hover effect */}
                     <Link to="/" className="block group w-fit">
                         <img
-                            src="/logo-pm1.png" // Replace with your actual logo path
+                            src="/logo-pm2.png" // Replace with your actual logo path
                             alt="Pure Marketing Logo"
-                            className="h-[150px] w-[250px] transition-transform duration-300 group-hover:scale-105"
+                            className="h-[70px] w-[200px] transition-transform duration-300 group-hover:scale-105"
                         />
                     </Link>
 
