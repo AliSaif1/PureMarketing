@@ -5,7 +5,7 @@ const MobileAppDevelopmentPage = () => {
     const tiers = [
         {
             name: "Starter App Solution",
-            price: "$3,000",
+            price: "$1,499",
             bestFor: "Small businesses or startups needing a basic app",
             features: [
                 "Single platform (iOS OR Android)",
@@ -22,7 +22,7 @@ const MobileAppDevelopmentPage = () => {
         },
         {
             name: "Premium App Solution",
-            price: "$8,000",
+            price: "$2,499",
             bestFor: "Growing businesses needing a professional app",
             features: [
                 "Cross-platform (iOS AND Android)",

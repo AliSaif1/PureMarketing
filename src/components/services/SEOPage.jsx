@@ -5,7 +5,7 @@ const SEOServicesPage = () => {
     const tiers = [
         {
             name: "SEO Audit & Strategy",
-            price: "$1,200 (one-time)",
+            price: "$499/month",
             bestFor: "Businesses needing a comprehensive SEO roadmap",
             features: [
                 "Full technical SEO audit",
@@ -23,7 +23,7 @@ const SEOServicesPage = () => {
         },
         {
             name: "SEO Growth Package",
-            price: "$1,800-$3,500/month",
+            price: "$1,499/month",
             bestFor: "Businesses wanting consistent organic growth",
             features: [
                 "Ongoing technical SEO optimizations",

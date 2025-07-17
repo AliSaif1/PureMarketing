@@ -91,56 +91,56 @@ const allServices = [
         name: "Logo Design",
         icon: '/logo.svg',
         pricing: [
-            { price: "$99/month", description: "1 Version" },
-            { price: "$190/month", description: "2 Versions" },
+            { price: "$70", description: "2 Concepts" },
+            { price: "$99", description: "3 Concepts" },
         ]
     },
     {
         name: "Business Card Design",
         icon: '/business.svg',
         pricing: [
-            { price: "$99/month", description: "1 Version" },
-            { price: "$190/month", description: "2 Versions" },
+            { price: "$70", description: "2 Concepts" },
+            { price: "$99", description: "3 Concepts" },
         ]
     },
     {
         name: "Letterhead Design",
         icon: '/letterHead.svg',
         pricing: [
-            { price: "$99/month", description: "1 Version" },
-            { price: "$190/month", description: "2 Versions" },
+            { price: "$70", description: "2 Concepts" },
+            { price: "$99", description: "3 Concepts" },
         ]
     },
     {
         name: "Email Signature Design",
         icon: '/email-sign.svg',
         pricing: [
-            { price: "$99/month", description: "1 Version" },
-            { price: "$190/month", description: "2 Versions" },
+            { price: "$70", description: "2 Concepts" },
+            { price: "$99", description: "3 Concepts" },
         ]
     },
     {
         name: "Flyer/Pamphalet Design",
         icon: '/flyer.svg',
         pricing: [
-            { price: "$99/month", description: "1 Version" },
-            { price: "$190/month", description: "2 Versions" },
+            { price: "$70", description: "2 Concepts" },
+            { price: "$99", description: "3 Concepts" },
         ]
     },
     {
         name: "Brochure Design",
         icon: '/brochure.svg',
         pricing: [
-            { price: "$99/month", description: "1 Version" },
-            { price: "$190/month", description: "2 Versions" },
+            { price: "$70", description: "2 Concepts" },
+            { price: "$99", description: "3 Concepts" },
         ]
     },
     {
         name: "Poster Design",
         icon: '/poster.svg',
         pricing: [
-            { price: "$99/month", description: "1 Version" },
-            { price: "$190/month", description: "2 Versions" },
+            { price: "$70", description: "2 Concepts" },
+            { price: "$99", description: "3 Concepts" },
         ]
     },
 ];

@@ -6,7 +6,7 @@ const BrandStrategyIdentityPage = () => {
     const tiers = [
         {
             name: "Basic Design Package",
-            price: "$200-$500",
+            price: "$149",
             bestFor: "Startups and small businesses needing essential designs",
             features: [
                 "Logo Design (2 concepts)",
@@ -21,7 +21,7 @@ const BrandStrategyIdentityPage = () => {
         },
         {
             name: "Standard Design Package",
-            price: "$500-$1,200",
+            price: "$199",
             bestFor: "Growing businesses needing complete branding materials",
             features: [
                 "Logo Design (3 concepts)",
@@ -36,7 +36,7 @@ const BrandStrategyIdentityPage = () => {
         },
         {
             name: "Premium Design Package",
-            price: "$1,200-$2,500",
+            price: "$499",
             bestFor: "Established companies needing full design solutions",
             features: [
                 "Logo with Variations (4 concepts)",

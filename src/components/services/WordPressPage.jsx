@@ -5,7 +5,7 @@ const WordPressDevelopmentPage = () => {
     const tiers = [
         {
             name: "Starter Site",
-            price: "$449",
+            price: "$349",
             bestFor: "Small businesses or bloggers needing a simple WordPress site",
             features: [
                 "4-5 standard pages",
@@ -21,7 +21,7 @@ const WordPressDevelopmentPage = () => {
         },
         {
             name: "Business Site",
-            price: "$799",
+            price: "$649",
             bestFor: "Growing businesses needing professional WordPress solutions",
             features: [
                 "7-10 custom pages",
@@ -37,7 +37,7 @@ const WordPressDevelopmentPage = () => {
         },
         {
             name: "WordPress E-Commerce",
-            price: "Contact Only",
+            price: "$1,199",
             bestFor: "Online stores and businesses needing WooCommerce solutions",
             features: [
                 "10-15 custom pages",

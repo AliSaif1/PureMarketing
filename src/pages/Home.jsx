@@ -28,11 +28,11 @@ export default function Home() {
     <main>
       <HeroSection onConsultClick={scrollToCTA} />
       <ServicesGrid />
+      <CTASection ref={ctaRef} />
       <Testimonials />
       <CaseStudies />
-      <ProcessSection />
+      {/* <ProcessSection /> */}
       <ClientsSection />
-      <CTASection ref={ctaRef} />
     </main>
   );
 }

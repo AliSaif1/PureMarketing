@@ -5,7 +5,7 @@ const GoogleMetaAdsPage = () => {
     const tiers = [
         {
             name: "Starter Ads Suite",
-            price: "$500-$800/month",
+            price: "$99/mo + 5% comm.",
             bestFor: "Small businesses starting with digital advertising",
             features: [
                 "1 platform (Google OR Meta)",
@@ -21,7 +21,7 @@ const GoogleMetaAdsPage = () => {
         },
         {
             name: "Growth Ads Suite",
-            price: "$1200-$2000/month",
+            price: "$199/mo + 5% comm.",
             bestFor: "Businesses scaling their digital advertising",
             features: [
                 "2 platforms (Google AND Meta)",

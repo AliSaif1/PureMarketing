@@ -88,12 +88,12 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-16 sm:py-20 relative bg-secondary-100">
+    <section className="py-16 sm:py-20 relative bg-secondary-50">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:max-w-none">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold tracking-tight text-slate-800 sm:text-5xl">
-              Client <span className="text-primary-500">Testimonials</span>
+            <h2 className="text-4xl font-bold tracking-tight text-primary-500 sm:text-5xl">
+              Businusses <span className="text-slate-800">that Trust Us</span>
             </h2>
             <p className="mt-4 text-xl leading-8 text-slate-800">
               What our clients say about us on Google

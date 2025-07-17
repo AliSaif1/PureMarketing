@@ -11,15 +11,12 @@ const CalendlySection = forwardRef((props, ref) => {
   }, []);
 
   return (
-    <section ref={ref} className="py-20 sm:py-24">
+    <section ref={ref} className="py-20 sm:py-24 bg-secondary-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Virtual Coffee with Ali
+            Talk to one of our Developers
           </h2>
-          <p className="mt-2 text-lg text-gray-600">
-            Book a 30-minute virtual meeting at your convenience.
-          </p>
         </div>
 
         <div className="relative max-w-4xl mx-auto w-full sm:h-[950px]">
