@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import allServices from "../../data/servicesData";
+import ModalComponent from "../modal";
 
 const ContentCreationPage = () => {
     const tiers = [
@@ -85,6 +86,10 @@ const ContentCreationPage = () => {
         setShowModal(true);
     };
 
+    function onClose() {
+        setShowModal(false);
+    }
+
     return (
         <>
             <Helmet>
@@ -145,7 +150,7 @@ const ContentCreationPage = () => {
 
                                     <div className="mt-8">
                                         <a
-                                            href={`#contact?package=content-${tier.name.toLowerCase().replace(' ', '-')}`}
+                                            onClick={() => handleGetStarted(tier)}
                                             className={`block w-full text-center px-6 py-3 rounded-lg font-bold transition-colors ${tier.popular
                                                 ? 'bg-primary-600 hover:bg-primary-700 text-white'
                                                 : 'bg-secondary-100 hover:bg-secondary-200 text-primary-700'}`}
@@ -408,46 +413,11 @@ const ContentCreationPage = () => {
 
             {/* Modal */}
             {showModal && (
-                <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50 p-4">
-                    <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
-                        <h3 className="text-lg font-medium text-gray-900 mb-4">
-                            Get Started with {selectedService?.name}
-                        </h3>
-                        {selectedOption && (
-                            <p className="mb-4 text-gray-600">
-                                Selected option: <span className="font-semibold">{selectedOption}</span>
-                            </p>
-                        )}
-                        <div className="mb-4">
-                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                                Email
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
-                                placeholder="your@email.com"
-                            />
-                        </div>
-                        <div className="flex justify-end space-x-3">
-                            <button
-                                onClick={() => setShowModal(false)}
-                                className="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
-                            >
-                                Cancel
-                            </button>
-                            <button
-                                onClick={() => {
-                                    // Handle form submission here
-                                    setShowModal(false);
-                                }}
-                                className="px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm font-medium rounded-md shadow-sm hover:from-orange-600 hover:to-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
-                            >
-                                Submit
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <ModalComponent
+                    selectedService={selectedService}
+                    selectedOption={selectedOption}
+                    onClose={onClose}
+                />
             )}
 
             {/* Schema Markup */}

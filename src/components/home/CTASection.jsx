@@ -15,8 +15,11 @@ const CalendlySection = forwardRef((props, ref) => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Talk to one of our Developers
+            Get Free Consultation from Our Experts
           </h2>
+          <p className="mt-2 text-gray-600">
+            Talk to our developers and get the right guidance — no charges, no commitment.
+          </p>
         </div>
 
         <div className="relative max-w-4xl mx-auto w-full sm:h-[950px]">
@@ -27,7 +30,7 @@ const CalendlySection = forwardRef((props, ref) => {
           )}
           <InlineWidget
             url="https://calendly.com/alisaif2617/30min?background_color=f7f7f7&primary_color=f68a49"
-            styles={{ height: '950px' }}
+            styles={{ height: '950px', color: '#f36922' }}
             pageSettings={{
               hideEventTypeDetails: false,
               hideLandingPageDetails: false,

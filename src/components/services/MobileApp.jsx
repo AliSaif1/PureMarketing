@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
+import ModalComponent from '../modal';
 
 const MobileAppDevelopmentPage = () => {
     const tiers = [
@@ -58,6 +59,20 @@ const MobileAppDevelopmentPage = () => {
             highlightColor: "primary-500"
         }
     ];
+
+    const [selectedService, setSelectedService] = useState(null);
+    const [selectedOption, setSelectedOption] = useState("");
+    const [showModal, setShowModal] = useState(false);
+
+    const handleGetStarted = (service) => {
+        setSelectedService(service);
+        setSelectedOption("");
+        setShowModal(true);
+    };
+
+    function onClose() {
+        setShowModal(false);
+    }
 
     return (
         <>
@@ -119,7 +134,7 @@ const MobileAppDevelopmentPage = () => {
 
                                     <div className="mt-8">
                                         <a
-                                            href={`#contact?package=app-${tier.name.toLowerCase().replace(' ', '-')}`}
+                                            onClick={() => handleGetStarted(tier)}
                                             className={`block w-full text-center px-6 py-3 rounded-lg font-bold transition-colors ${tier.popular
                                                 ? 'bg-primary-600 hover:bg-primary-700 text-white'
                                                 : 'bg-secondary-100 hover:bg-secondary-200 text-primary-700'}`}
@@ -260,6 +275,14 @@ const MobileAppDevelopmentPage = () => {
                     </div>
                 </section>
             </main>
+
+            {showModal && (
+                <ModalComponent
+                    selectedService={selectedService}
+                    selectedOption={selectedOption}
+                    onClose={onClose}
+                />
+            )}
 
             {/* Schema Markup */}
             <script type="application/ld+json">

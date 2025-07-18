@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 
 const DigitalMarketingPage = () => {
@@ -62,6 +62,20 @@ const DigitalMarketingPage = () => {
         }
     ];
 
+    const [selectedService, setSelectedService] = useState(null);
+    const [selectedOption, setSelectedOption] = useState("");
+    const [showModal, setShowModal] = useState(false);
+
+    const handleGetStarted = (service) => {
+        setSelectedService(service);
+        setSelectedOption("");
+        setShowModal(true);
+    };
+
+    function onClose() {
+        setShowModal(false);
+    }
+
     return (
         <>
             <Helmet>
@@ -122,7 +136,7 @@ const DigitalMarketingPage = () => {
 
                                     <div className="mt-8">
                                         <a
-                                            href={`#contact?package=marketing-${tier.name.toLowerCase().replace(' ', '-')}`}
+                                            onClick={() => handleGetStarted(tier)}
                                             className={`block w-full text-center px-6 py-3 rounded-lg font-bold transition-colors ${tier.popular
                                                 ? 'bg-primary-600 hover:bg-primary-700 text-white'
                                                 : 'bg-secondary-100 hover:bg-secondary-200 text-primary-700'}`}
@@ -262,6 +276,14 @@ const DigitalMarketingPage = () => {
                     </div>
                 </section>
             </main>
+
+            {showModal && (
+                <ModalComponent
+                    selectedService={selectedService}
+                    selectedOption={selectedOption}
+                    onClose={onClose}
+                />
+            )}
 
             {/* Schema Markup */}
             <script type="application/ld+json">
